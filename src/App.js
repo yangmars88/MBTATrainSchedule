@@ -5,9 +5,7 @@ import './App.css';
             state={
                    dataArray:[]
                };
-         // componentDidMount(){
-         //     this.getTrainInfo();
-         //   }
+
          getTrainInfo=(station)=>{
                  let arr=[];
              fetch('https://api-v3.mbta.com/predictions?filter[stop]='+station+'&filter[direction_id]=0&include=vehicle&sort=departure_time')
@@ -15,6 +13,7 @@ import './App.css';
                  .then(res=> {
                     let changes= res.data.map(dat => {
                         let data={};
+                         data.station=station;
                          data.departureTime = dat.attributes.departure_time || 'N/A';
                          data.trackNo= dat.relationships.vehicle.data? dat.relationships.vehicle.data.id : 'N/A';
                          data.boardingStaus = dat.attributes.status || 'N/A';
@@ -51,6 +50,7 @@ import './App.css';
                  <button id="north" onClick={()=>{this.getTrainInfo('North+Station')}}>North Station</button>
                  <ul className="myList">
                      <li className="title">
+                         <span><strong>DepartureStation</strong></span>
                          <span><strong>DepartureTime</strong></span>
                          <span><strong>Destination</strong> </span>
                          <span><strong>Status</strong></span>
@@ -61,6 +61,7 @@ import './App.css';
                          data.length<=0? <strong>Please Select Station</strong>:
                              data.map(dat=>(
                                  <li key={dat.departureTime+dat.trackNo+dat.destination}>
+                                     <span>{dat.station}</span>
                                      <span>{new Date(dat.departureTime).toLocaleString('en-US',{hour:'numeric',minute:'numeric', hour12:true})}</span>
                                      <span>{dat.destination}</span>
                                      <span>{dat.boardingStaus}</span>
