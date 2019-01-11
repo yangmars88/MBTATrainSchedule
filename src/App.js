@@ -8,7 +8,7 @@ import './App.css';
 
          getTrainInfo=(station)=>{
                  let arr=[];
-             fetch('https://api-v3.mbta.com/predictions?api-key=769d0f5a333246bb8a0c15459f0a443d&filter[stop]='+station+'&filter[direction_id]=0&include=vehicle&sort=departure_time')
+             fetch('https://api-v3.mbta.com/predictions?filter[stop]='+station+'&filter[direction_id]=0&include=vehicle&sort=departure_time')
                  .then(response=>response.json())
                  .then(res=> {
                     let changes= res.data.map(dat => {
