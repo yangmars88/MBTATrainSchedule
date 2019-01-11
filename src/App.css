@@ -1,0 +1,26 @@
+#south {
+    background-color: antiquewhite;
+}
+#north{
+    background-color: antiquewhite;
+}
+#south:hover {
+   background-color:greenyellow;
+}
+#north:hover{
+    background-color:greenyellow;
+}
+
+div ul {
+    display:table;
+    width:35%;
+    padding:0;
+}
+div ul li{
+    display:table-row;
+}
+
+div ul li span{
+    display:table-cell;
+    text-align:left;
+}
