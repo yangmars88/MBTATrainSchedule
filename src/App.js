@@ -13,7 +13,7 @@ import './App.css';
                  .then(res=> {
                     let changes= res.data.map(dat => {
                         let data={};
-                         data.station=station==='South+Station'? 'South Station' : 'North Station';
+                         station==='South+Station'? data.station='South Station' :  data.station='North Station';
                          data.departureTime = dat.attributes.departure_time || 'N/A';
                          data.trackNo= dat.relationships.vehicle.data? dat.relationships.vehicle.data.id : 'N/A';
                          data.boardingStaus = dat.attributes.status || 'N/A';
