@@ -1,8 +1,6 @@
-https://api-v3.mbta.com/routes/CR-Newburyport
-https://api-v3.mbta.com/predictions?filter[stop]=South+Station,North+Station&filter[direction_id]=0&include=vehicle&sort=departure_time
-https://api-v3.mbta.com/docs/swagger/index.html#/
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+Please check the live demo on:https://mbtatrainschedule.herokuapp.com/
 
 ## Available Scripts
 
